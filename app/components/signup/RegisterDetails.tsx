@@ -5,8 +5,6 @@ import Input from '../ui/Input'
 import { createCompany } from '@/actions/companyActions'
 import { useActionState, useRef } from 'react'
 
-
-
 interface CompanyFormState {
   errors?: {
     name?: string[];
@@ -36,8 +34,8 @@ function RegisterDetails() {
         <div>
             <h2 className={'w-full text-center font-bold text-xl md:text-3xl py-6'}>Company Details</h2>
             {state?.errors?._form  && <ul>
-                {state.errors._form?.map((err:string) => (
-                  <li className="text-red-500">{err}</li>
+                {state.errors._form?.map((err:string, index:number) => (
+                  <li key={index} className="text-red-500">{err}</li>
                 ))}
               </ul>
             }
@@ -50,36 +48,36 @@ function RegisterDetails() {
               {
                   state?.errors?.name
                   && <ul>
-                  {state?.errors.name?.map((err:string) => (
-                    <li className="text-red-500">{err}</li>
-                  ))}
+                  {state?.errors.name?.map((err:string, index:number) => (
+                  <li key={index} className="text-red-500">{err}</li>
+                ))}
                 </ul>
               }
               <Input type="text" className={'outline-none rounded-xl text-sm w-full h-10 bg-lightgreen focus:border shadow-sm px-2 mb-3'} placeholder={'Site url or link to app store*'} name='appUrl'/>
               {
                   state?.errors.appUrl
                   && <ul>
-                  {state?.errors.appUrl?.map((err:string) => (
-                    <li className="text-red-500">{err}</li>
-                  ))}
+                  {state?.errors.appUrl?.map((err:string, index:number) => (
+                  <li key={index} className="text-red-500">{err}</li>
+                ))}
                 </ul>
               }
               <Input type="email" className={'outline-none rounded-xl text-sm w-full h-10 bg-lightgreen focus:border shadow-sm px-2 mb-3'} placeholder={'Company Email*'} name='email'/>
               {
                   state?.errors.email
                   && <ul>
-                  {state?.errors.email?.map((err:string) => (
-                    <li className="text-red-500">{err}</li>
-                  ))}
+                  {state?.errors.email?.map((err:string, index:number) => (
+                  <li key={index} className="text-red-500">{err}</li>
+                ))}
                 </ul>
               }
               <textarea placeholder={'App description'} name={'description'} className={'outline-none rounded-xl text-sm w-full bg-lightgreen focus:border shadow-sm p-2 mb-3'} cols={30} rows={10}></textarea>
               {
                   state?.errors.description
                   && <ul>
-                  {state?.errors.description?.map((err:string) => (
-                    <li className="text-red-500">{err}</li>
-                  ))}
+                  {state?.errors.description?.map((err:string, index:number) => (
+                  <li key={index} className="text-red-500">{err}</li>
+                ))}
                 </ul>
               }
               <div className={'flex flex-col text-slate-500 mb-3 text-sm'}>
@@ -89,9 +87,9 @@ function RegisterDetails() {
                 {
                   state?.errors.logo
                   && <ul>
-                  {state?.errors.logo?.map((err:string) => (
-                    <li className="text-red-500">{err}</li>
-                  ))}
+                  {state?.errors.logo?.map((err:string, index:number) => (
+                  <li key={index} className="text-red-500">{err}</li>
+                ))}
                 </ul>
                 }
               </div>

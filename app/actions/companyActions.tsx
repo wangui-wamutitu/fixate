@@ -79,13 +79,12 @@ export async function createCompany(
         }
     }
 
-    // let company:Company
+    let company:Company
     try {
         // If validation passes, create a new post in the database
         //first hash the password
 
-        // company = 
-        await prisma.company.create({
+        company = await prisma.company.create({
             data: {
                 name: result.data.name,
                 appUrl: result.data.appUrl,
